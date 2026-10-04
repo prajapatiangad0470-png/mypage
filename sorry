@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sorry</title>
+<style>
+  body{background:#ff758c;display:flex;justify-content:center;align-items:center;height:100vh;margin:0;font-family:sans-serif;}
+  .card{background:#fff;padding:25px;border-radius:15px;text-align:center;box-shadow:0 5px 15px rgba(0,0,0,0.2);width:280px;}
+  h2{color:#ff3366;margin:10px 0;}
+  input,button{width:100%;padding:10px;margin-top:10px;border-radius:8px;border:1px solid #ccc;box-sizing:border-box;}
+  button{background:#ff3366;color:#fff;border:none;font-weight:bold;cursor:pointer;}
+  #msg{margin-top:15px;font-weight:bold;font-size:18px;}
+  .h{position:fixed;bottom:-20px;font-size:20px;animation:f 3s linear forwards;}
+  @keyframes f{to{transform:translateY(-110vh);opacity:0;}}
+</style>
+</head>
+<body>
+  <div class="card">
+    <div id="i" style="font-size:50px;">🥺</div>
+    <h2>I am Sorry,<br>mujhe maaf krdo!</h2>
+    <input type="text" id="in" placeholder="Jawab likho...">
+    <button onclick="sub()">Submit ❤️</button>
+    <div id="msg"></div>
+  </div>
+<script>
+function sub(){
+  let v=document.getElementById('in').value.trim().toLowerCase();
+  let m=document.getElementById('msg'), i=document.getElementById('i');
+  let ok=['thik he','thik hai','ok','yes','ha','haa'];
+  if(ok.includes(v)){
+    m.style.color='green'; m.innerText="Thank You! ❤️"; i.innerText="🥰";
+    for(let j=0;j<30;j++) setTimeout(()=>{
+      let h=document.createElement('div'); h.className='h'; h.innerText='❤️';
+      h.style.left=Math.random()*100+'vw'; document.body.appendChild(h);
+      setTimeout(()=>h.remove(),3000);
+    }, j*100);
+  } else {
+    m.style.color='red'; m.innerText="Plz forgive me! 🥺🙏"; i.innerText="😭";
+  }
+}
+</script>
+</body>
+</html>
